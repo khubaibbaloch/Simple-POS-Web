@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>View All - Mobile Stock</title>
+  <link rel="stylesheet" href="CSS/view-item.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-brand">MobileStock</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search models..." />
+      <button class="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+    <button class="add-item-btn">
+      <i class="fas fa-plus"></i>
+      <span>Add Item</span>
+    </button>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Tabs Section -->
+    <div class="tabs-container">
+      <div class="tabs-wrapper">
+        <div class="tabs">
+          <button class="tab active" data-tab="all">
+            <i class="fas fa-boxes"></i>
+            <span>All Devices</span>
+          </button>
+          <button class="tab" data-tab="used">
+            <i class="fas fa-recycle"></i>
+            <span>Used</span>
+          </button>
+          <button class="tab" data-tab="refurbished">
+            <i class="fas fa-certificate"></i>
+            <span>Refurbished</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand Section -->
+    <section class="brand-section">
+      <div class="brand-header">
+        <h1 class="brand-title" id="brand-title">Brand Devices</h1>
+        <div class="total-items" id="total-items">Showing 0 devices</div>
+      </div>
+
+      <!-- Items Grid -->
+      <div class="items-grid" id="items-grid">
+        <!-- Items will be dynamically inserted here -->
+      </div>
+    </section>
+
+    
+  </main>
+
+  <!-- Custom Delete Dialog Box -->
+<div id="deleteDialog" class="delete-dialog">
+    <div class="delete-dialog-content">
+      <h3>Delete Item</h3>
+      <p>Are you sure you want to delete this item? This action cannot be undone.</p>
+      <div class="delete-dialog-buttons">
+        <button id="confirmDeleteBtn" class="delete-btn confirm">Delete</button>
+        <button id="cancelDeleteBtn" class="delete-btn cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/view-all.js"></script>
+</body>
+</html>

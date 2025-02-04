@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobileStock - Add Item</title>
+    <link rel="stylesheet" href="CSS/add-item.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">MobileStock</div>
+        <a href="index.html" class="cancel-btn">
+            <i class="fas fa-arrow-left"></i>
+            <span>Cancel</span>
+        </a>
+    </nav>
+
+    <!-- Add Item Form -->
+    <main class="container">
+        <section class="add-item-form">
+            <h2 class="form-title">Add New Product</h2>
+            
+            <form id="addItemForm" enctype="multipart/form-data">
+                <!-- Basic Information -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="mobileId">Mobile ID (SKU/Serial)</label>
+                        <input type="text" id="mobileId" name="mobileId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="brand">Brand</label>
+                        <select id="brand" name="brand" required>
+                            <option value="">Select Brand</option>
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="mobile">Model</label>
+                        <select id="mobile" name="mobile" required>
+                            <option value="">Select Model</option>
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="condition">Condition</label>
+                        <select id="condition" name="condition" required>
+                            <option value="">Select Condition</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ram">RAM (GB)</label>
+                        <select id="ram" name="ram" required>
+                            <option value="">Select RAM</option>
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="storage">Storage (GB)</label>
+                        <select id="storage" name="storage" required>
+                            <option value="">Select Storage</option>
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="imei">IMEI Number(s)</label>
+                        <input type="text" id="imei" name="imei" placeholder="Separate multiple IMEIs with commas" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select id="status" name="status" required>
+                            <option value="">Select Status</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Specifications Section -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="batteryHealth">Battery Health (%)</label>
+                        <input type="number" id="batteryHealth" name="batteryHealth" min="0" max="100" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="color">Color</label>
+                        <select id="color" name="color" required>
+                            <option value="">Select Color</option>
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Pricing & Financials -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="purchasePrice">Purchase Price ($)</label>
+                        <input type="number" id="purchasePrice" name="purchasePrice" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sellingPrice">Selling Price ($)</label>
+                        <input type="number" id="sellingPrice" name="sellingPrice" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="discount">Discount (%)</label>
+                        <input type="number" id="discount" name="discount" min="0" max="100" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="profitMargin">Profit Margin</label>
+                        <input type="text" id="profitMargin" readonly>
+                    </div>
+                </div>
+
+                <!-- Stock Management -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quantity">Quantity in Stock</label>
+                        <input type="number" id="quantity" name="quantity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="restockThreshold">Restock Threshold</label>
+                        <input type="number" id="restockThreshold" name="restockThreshold" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="supplier">Supplier Name/Contact</label>
+                        <input type="text" id="supplier" name="supplier" required>
+                    </div>
+                </div>
+
+                <!-- Additional Features -->
+                <div class="form-group">
+                    <label>Accessories Included</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="accessories[]" value="charger"> Charger</label>
+                        <label><input type="checkbox" name="accessories[]" value="earphones"> Earphones</label>
+                        <label><input type="checkbox" name="accessories[]" value="case"> Case</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Network Support</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="network[]" value="5g"> 5G</label>
+                        <label><input type="checkbox" name="network[]" value="lte"> LTE</label>
+                        <label><input type="checkbox" name="network[]" value="dual-sim"> Dual-SIM</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="warranty">Warranty Status</label>
+                        <select id="warranty" name="warranty" required>
+                            <option value="">Select Warranty Status</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="purchaseDate">Date of Purchase</label>
+                        <input type="date" id="purchaseDate" name="purchaseDate" required>
+                    </div>
+                </div>
+
+                <!-- Image Uploads -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="invoice">Invoice/Receipt</label>
+                        <input type="file" id="invoice" name="invoice" accept=".pdf,.jpg,.png" >
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Add Product</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/add-item.js"></script>
+</body>
+</html>
